@@ -4,6 +4,9 @@
     box-sizing: border-box;
     font-family: 'Lato',  monospace;
 }
+body {
+    position: relative;
+}
 header {
     text-align: center;
     background-color: #fff0f0;
@@ -41,14 +44,19 @@ main .button-modal .modal-button-item {
     margin: auto;
     z-index: 99;
     display: none;
+    box-shadow: 5px 3px 4px 2px #b15555;
+    opacity: 0;
+    animation: opacityBlock 2s ease-in-out;
 }
-/* .backgraund-modal {
+.backgraund-modal {
     position: absolute;
     width: 100%;
     height: 100%;
     z-index: 90;
+    top:0;
     background-color:rgba(136, 136, 136, 0.541);
-} */
+    display: none;
+}
 .info-modal .modal-item p {
     padding: 2%;
 }
@@ -67,4 +75,36 @@ main .button-modal .modal-button-item {
     /* vertical-align: middle; */
     cursor: pointer;
 }
-.modal-item.active {display: block;}
+.backgraund-modal.active{display: block; }
+.modal-item.active {
+    display: block;  
+    opacity: 1;
+}
+@keyframes opacityBlock {
+    0% {
+        opacity: 0;
+        width: 0%;
+    }
+    50% {
+        opacity: 0.7;
+        width: 50%;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+@keyframes opacityNone {
+    0% {
+        opacity: 1;
+        width: 100%;
+    }
+    50% {
+        opacity: 0.7;
+        width: 50%;
+    }
+    100% {
+        opacity: 0;
+        width: 0%;
+    }
+}
